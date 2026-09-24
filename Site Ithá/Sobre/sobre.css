@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   JANELA SOBRE
+   ========================= */
+
+.sobre-modal {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background-color: rgba(0, 0, 0, 0.65);
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   CONTEÚDO
+   ========================= */
+
+.sobre-conteudo {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #ffffff;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   IMAGEM
+   ========================= */
+
+.sobre-imagem {
+
+    background-color: #e9e9e9;
+
+    background-position: center;
+    background-size: cover;
+}
+
+
+/*
+    Para adicionar uma imagem de fundo:
+
+    .sobre-imagem {
+        background-image: url("URL_DA_IMAGEM");
+    }
+*/
+
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.sobre-texto {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 70px;
+}
+
+
+/* PEQUENO TÍTULO */
+
+.sobre-label {
+    margin-bottom: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #777777;
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.sobre-texto h1 {
+    max-width: 500px;
+
+    margin-bottom: 25px;
+
+    font-size: 38px;
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    color: #222222;
+}
+
+
+/* PARÁGRAFOS */
+
+.sobre-texto p {
+    max-width: 500px;
+
+    margin-bottom: 18px;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    color: #666666;
+}
+
+
+/* =========================
+   NÚMEROS
+   ========================= */
+
+.sobre-detalhes {
+    display: flex;
+
+    gap: 60px;
+
+    margin-top: 25px;
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+
+.detalhe {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.detalhe strong {
+    font-size: 27px;
+    font-weight: 500;
+
+    color: #222222;
+}
+
+
+.detalhe span {
+    font-size: 12px;
+
+    color: #888888;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .sobre-conteudo {
+        grid-template-columns: 0.8fr 1.2fr;
+
+        min-height: 500px;
+    }
+
+
+    .sobre-imagem {
+        min-height: 500px;
+    }
+
+
+    .sobre-texto {
+        padding: 45px;
+    }
+
+
+    .sobre-texto h1 {
+        font-size: 31px;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 650px) {
+
+    .sobre-modal {
+        padding: 15px;
+    }
+
+
+    .sobre-conteudo {
+        display: flex;
+
+        flex-direction: column;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
+
+    .sobre-imagem {
+        width: 100%;
+        min-height: 230px;
+
+        flex-shrink: 0;
+    }
+
+
+    .sobre-texto {
+        padding: 35px 30px;
+    }
+
+
+    .sobre-texto h1 {
+        font-size: 27px;
+    }
+
+
+    .sobre-texto p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    .sobre-detalhes {
+        gap: 40px;
+    }
+
+}

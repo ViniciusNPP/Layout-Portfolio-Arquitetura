@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   TELA DE CONTATO
+   ========================= */
+
+.contato {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background-color: #f5f5f3;
+}
+
+
+/* =========================
+   INTRODUÇÃO
+   ========================= */
+
+.contato-introducao {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 10%;
+
+    background-color: #222222;
+
+    color: #ffffff;
+}
+
+
+.contato-label {
+    margin-bottom: 25px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color: #aaaaaa;
+}
+
+
+.contato-introducao h1 {
+    max-width: 550px;
+
+    margin-bottom: 30px;
+
+    font-size: clamp(38px, 4vw, 60px);
+    line-height: 1.1;
+
+    font-weight: 400;
+}
+
+
+.contato-introducao p {
+    max-width: 480px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #bdbdbd;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
+
+.contato-informacoes {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 10%;
+}
+
+
+/* =========================
+   ITEM DE CONTATO
+   ========================= */
+
+.contato-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #d9d9d9;
+
+    text-decoration: none;
+
+    color: #222222;
+
+    transition: padding-left 0.2s ease;
+}
+
+
+.contato-item:first-child {
+    border-top: 1px solid #d9d9d9;
+}
+
+
+.contato-item:hover {
+    padding-left: 10px;
+}
+
+
+/* =========================
+   ÍCONE
+   ========================= */
+
+.contato-icone {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #cccccc;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #333333;
+}
+
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.contato-detalhes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.contato-detalhes span {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    color: #888888;
+}
+
+
+.contato-detalhes strong {
+    font-size: 17px;
+
+    font-weight: 400;
+
+    color: #222222;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .contato {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contato-introducao {
+        min-height: 45vh;
+
+        padding: 70px 10%;
+    }
+
+
+    .contato-informacoes {
+        padding: 60px 10%;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .contato-introducao {
+        min-height: 50vh;
+
+        padding: 60px 25px;
+    }
+
+
+    .contato-introducao h1 {
+        font-size: 38px;
+    }
+
+
+    .contato-introducao p {
+        font-size: 14px;
+    }
+
+
+    .contato-informacoes {
+        padding: 40px 25px;
+    }
+
+
+    .contato-item {
+        gap: 18px;
+
+        padding: 20px 0;
+    }
+
+
+    .contato-icone {
+        width: 42px;
+        height: 42px;
+
+        font-size: 16px;
+    }
+
+
+    .contato-detalhes strong {
+        font-size: 14px;
+    }
+
+}
