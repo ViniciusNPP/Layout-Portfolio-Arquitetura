@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #EEE6D3;
+    --texto: #4a4840;
+    --destaque: #9a6444;
+    --fonte-titulo: 'Plus Jakarta Sans', sans-serif;
+    --fonte-texto: 'Jost', Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: var(--fonte-texto);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+/* =========================
+CONTEÚDO
+========================= */
+.header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    z-index: 10;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: calc(100dvh - 80px);
+    min-height: 560px;
+    background-color: var(--fundo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* =========================
+   SEÇÃO SOBRE
+   ========================= */
+.sobre {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 120px);
+    align-items: center;
+}
+
+/* Foto */
+.sobre_foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 4.8;
+    max-height: calc(100dvh - 80px - 140px);
+    object-fit: cover;
+}
+
+.sobre_foto figcaption {
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--texto);
+}
+
+/* Conteúdo */
+.sobre_conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre_etiqueta {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--destaque);
+    margin-bottom: 14px;
+}
+
+.sobre_titulo {
+    font-family: var(--fonte-titulo);
+    font-weight: 300;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.15;
+    color: var(--texto);
+    margin-bottom: 36px;
+}
+
+.sobre_titulo em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--destaque);
+}
+
+/* =========================
+   CARROSSEL
+   ========================= */
+.carrossel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.carrossel_area {
+    flex: 1;
+    display: grid;
+    min-height: 0;
+}
+
+.carrossel_slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s;
+}
+
+.carrossel_slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.carrossel_slide p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--texto);
+    margin-bottom: 18px;
+}
+
+.carrossel_slide p:last-child {
+    margin-bottom: 0;
+}
+
+/* Setas */
+.carrossel_seta {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--destaque);
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.carrossel_seta svg {
+    width: 9px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.carrossel_seta:hover {
+    opacity: 1;
+}
+
+#btn-anterior:hover { transform: translateX(-2px); }
+#btn-proximo:hover  { transform: translateX(2px); }
+
+.carrossel_seta:focus-visible,
+.carrossel_ponto:focus-visible {
+    outline: 1px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+/* Pontos */
+.carrossel_pontos {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.carrossel_ponto {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid var(--destaque);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+}
+
+.carrossel_ponto.ativo {
+    background: var(--destaque);
+}
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 1024px) {
+
+    .header {
+        position: absolute;
+        height: 80px;
+    }
+
+    .header.aberto {
+        height: 100vh;
+    }
+
+    main {
+        height: auto;
+        min-height: 100dvh;
+        padding: 80px 0 32px;
+        align-items: flex-start;
+    }
+
+    .sobre {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "conteudo"
+            "foto";
+        gap: 20px;
+        padding: 0 24px;
+    }
+
+    .sobre_conteudo {
+        grid-area: conteudo;
+    }
+
+    .sobre_foto {
+        grid-area: foto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre_foto img {
+        width: auto;
+        height: auto;
+        min-height: 25dvh;
+        max-height: max(25dvh, calc(100dvh - 500px));
+        max-width: 100%;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    .sobre_foto figcaption {
+        margin-top: 8px;
+        font-size: clamp(11px, 2vw, 20px);
+    }
+
+    .sobre_titulo {
+        font-size: clamp(28px, 4vw, 44px);
+        margin-bottom: clamp(12px, 2.4vw, 30px);
+    }
+
+    .sobre_etiqueta {
+        margin-bottom: 8px;
+    }
+
+    .carrossel_slide p {
+        font-size: clamp(13.5px, 2.4vw, 22px);
+        line-height: 1.5;
+        margin-bottom: clamp(10px, 2vw, 20px);
+    }
+
+    .carrossel {
+        gap: 8px;
+    }
+
+    .carrossel_pontos {
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 600px) {
+    .sobre_foto {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-height: 600px) {
+    .carrossel_slide p {
+        font-size: clamp(13.5px, 2.4vw, 18px);
+        margin-bottom: clamp(10px, 2vw, 16px);
+    }
+
+    .sobre_titulo {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: clamp(12px, 2.4vw, 26px);
+    }
+
+    .sobre_foto figcaption {
+        font-size: 10px;
+    }
+}

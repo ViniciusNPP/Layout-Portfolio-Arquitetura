@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projeto</title>
+
+    <link rel="stylesheet" href="projeto.css">
+</head>
+
+<body>
+
+    <!-- Janela do projeto -->
+    <div class="projeto-modal">
+
+        <div class="projeto-modal-conteudo">
+
+            <!-- Área das imagens -->
+            <div class="projeto-galeria">
+
+                <img 
+                    id="imagem-projeto"
+                    src="https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Imagem do projeto"
+                >
+
+                <!-- Botão anterior -->
+                <button 
+                    class="galeria-seta galeria-anterior"
+                    id="anterior"
+                    aria-label="Imagem anterior"
+                >
+                    &#10094;
+                </button>
+
+                <!-- Botão próxima -->
+                <button 
+                    class="galeria-seta galeria-proxima"
+                    id="proxima"
+                    aria-label="Próxima imagem"
+                >
+                    &#10095;
+                </button>
+
+                <!-- Indicadores -->
+                <div class="galeria-indicadores">
+                    <span class="indicador ativo"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+
+            </div>
+
+
+            <!-- Informações do projeto -->
+            <div class="projeto-detalhes">
+
+                <h1>Nome</h1>
+
+                <h2>Endereço - Endereço</h2>
+
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor perspiciatis nobis reprehenderit illo nostrum, omnis ipsum, cum repellat at, quas similique dolore doloribus officiis. Ea tenetur quo obcaecati facilis earum voluptatem similique praesentium.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="projeto.js"></script>
+
+</body>
+
+</html>

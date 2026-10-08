@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #280201;
+}
+
+.logo {
+    width: 100px;
+    height: 80px;
+    background-image: url("../Imagens/Prancheta_28-nobckg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+
+    .nav {
+        font-size: 1.3em;
+        font-family: "Cormorant Garamond", serif;
+        font-style: normal;
+        font-weight: 500;
+        transition: opacity 0.3s,
+            font-size 0.3s;
+        cursor: pointer;
+        line-height: 24px;
+    }
+}
+
+nav:has(.nav:hover) .nav:not(:hover) {
+    opacity: 0.5;
+    font-size: 1.3em;
+}
+
+nav .nav:hover {
+    opacity: 1;
+    font-size: 1.35em;
+}
+
+.expansor {
+    display: none;
+    font-size: 2em;
+}
+
+#menu-toggle {
+    position: absolute;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    /* Fundo desfocado */
+
+    body:has(#menu-toggle:checked)::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 5;
+    }
+    
+    /*========================================
+                    MOBILE LATERAL
+    ==========================================*/
+    nav {
+        width: 150px;
+        height: 100vh;
+        flex-direction: column;
+        transition: transform 0.3s;
+        z-index: 10;
+
+        .superior-header {
+            margin-left: 30%;
+            display: flex;
+            align-items: start;
+            gap: 40px;
+        }
+
+        .logo {
+            display: none;
+            /* position: absolute;
+            top: 0;
+            left: 50px;
+            transform: translateY(-20%); */
+        }
+    }
+
+    nav:not(.mobile):not(.mobile2) {
+        transform: translateX(-100%);
+    }
+
+    nav:not(.mobile):not(.mobile2):has(#menu-toggle:checked) {
+        transform: translateX(0%);
+    }
+
+    .expansor {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 10px;
+        z-index: 10;
+    }
+
+    .close-expansor {
+        display: none;
+    }
+
+    nav:has(#menu-toggle:checked) {
+        transform: translateX(0%);
+    }
+
+    .nav-container {
+        flex-direction: column;
+        line-height: normal;
+        width: 100%;
+        margin-left: 10px;
+        top: 35%;
+
+        .nav {
+            width: 100%;
+            margin: 0 0;
+            color: #EEE6D3;
+        }
+    }
+
+    /*========================================
+                  MOBILE JANELA
+    ==========================================*/
+
+    nav.mobile {
+        position: fixed;
+        width: calc(100% - 24px);
+        height: 250px;
+        left: 12px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #C2BC9E;
+        z-index: 10;
+        transition: transform 0.3s ease;
+    }
+
+    /* Logo */
+
+    nav.mobile .superior-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0 0 0;
+    }
+
+    nav.mobile .logo {
+        width: auto;
+        height: auto;
+        background-image: none;
+    }
+
+    nav.mobile .logo::before {
+        content: "Ithá Arquitetura";
+        font-size: 28px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+    }
+
+    /* Links */
+
+    nav.mobile .nav-container {
+        position: static;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-top: 35px;
+    }
+
+    nav.mobile .nav {
+        width: auto;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        line-height: 29px;
+        font-weight: 400;
+        color: white;
+    }
+
+    /* Botão X */
+
+    nav.mobile+.expansor-menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    nav.mobile:has(#menu-toggle:not(:checked))+.expansor-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav.mobile~.close-expansor {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        color: #b8afa7;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 38px;
+        font-weight: 200;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    nav.mobile:has(#menu-toggle:not(:checked))~.close-expansor {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    /* Mostra o menu quando o checkbox estiver marcado */
+
+    nav.mobile:has(#menu-toggle:checked) {
+        transform: translateY(0);
+    }
+
+    nav.mobile:has(#menu-toggle:not(:checked)) {
+        transform: translateY(calc(100% + 10px));
+    }
+
+    /*========================================
+                    MOBILE HEADER
+    ==========================================*/
+    nav.mobile2 {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        background-color: #C2BC9E;
+
+        .nav-container {
+            position: static;
+            transform: none;
+            flex-direction: row;
+            font-size: 0.8em;
+            margin-left: 0;
+            width: auto;
+        }
+
+        .superior-header {
+            margin-left: 0;
+            margin-right: 20px;
+
+            .logo {
+                height: 55px;
+                width: 55px;
+            }
+        }
+    }
+
+    nav.mobile2~.expansor {
+        display: none;
+    }
+}
+
+@media (max-width: 1024) {
+    .nav {
+        font-size: clamp(13.5px, 2.4vw, 22px);
+    }
+}
