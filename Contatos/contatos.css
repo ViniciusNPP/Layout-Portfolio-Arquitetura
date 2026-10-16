@@ -132,10 +132,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #cccccc;
     font-size: 18px;
     font-weight: 500;
-    color: #333333;
+    color: #280201;
+}
+
+div.contato-icone {
+    font-size: 28px;
+}
+
+.contato-imagem {
+    background-color: #280201;
+    transform: scale(0.58);
+    mask: center / contain no-repeat;
+}
+
+.contato-imagem.whatsapp {
+    mask-image: url("../Imagens/whatsapp.png");
+}
+
+.contato-imagem.instagram {
+    mask-image: url("../Imagens/instagram.png");
 }
 
 

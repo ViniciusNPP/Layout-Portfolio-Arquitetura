@@ -3,6 +3,7 @@ body {
     overflow: hidden;
 }
 
+/* Container Header */
 nav {
     display: flex;
     align-items: center;
@@ -10,14 +11,16 @@ nav {
     background-color: #280201;
 }
 
+/* Imagem da logo */
 .logo {
-    width: 100px;
+    width: 180px;
     height: 80px;
-    background-image: url("../Imagens/Prancheta_28-nobckg.png");
+    background-image: url("../Imagens/Prancheta-ITHA.png");
     background-size: cover;
     background-position: center;
 }
 
+/* Opções de navegação */
 .nav-container {
     position: absolute;
     top: 50%;
@@ -26,11 +29,13 @@ nav {
     display: flex;
     gap: 20px;
 
+    /* Opções */
     .nav {
         font-size: 1.3em;
         font-family: "Cormorant Garamond", serif;
         font-style: normal;
         font-weight: 500;
+        color: #EEE6D3;
         transition: opacity 0.3s,
             font-size 0.3s;
         cursor: pointer;
@@ -38,29 +43,37 @@ nav {
     }
 }
 
+/* Dimiui o tamanho e a opacidade das outras opções enquanto uma está com mouse em cima */
 nav:has(.nav:hover) .nav:not(:hover) {
     opacity: 0.5;
     font-size: 1.3em;
 }
 
+/* Opção com mouse em cima ganha destaque */
 nav .nav:hover {
     opacity: 1;
     font-size: 1.35em;
 }
 
+/* Botão de expandir o header no mobile */
 .expansor {
     display: none;
     font-size: 2em;
 }
 
+/* Input do label .expansor */
 #menu-toggle {
     position: absolute;
     opacity: 0;
 }
 
-@media (max-width: 768px) {
-    /* Fundo desfocado */
+/*========================================
+                  MOBILE JANELA
+    ==========================================*/
 
+@media (max-width: 768px) {
+    
+    /* Fundo desfocado */
     body:has(#menu-toggle:checked)::before {
         content: "";
         position: fixed;
@@ -69,75 +82,8 @@ nav .nav:hover {
         -webkit-backdrop-filter: blur(8px);
         z-index: 5;
     }
-    
-    /*========================================
-                    MOBILE LATERAL
-    ==========================================*/
-    nav {
-        width: 150px;
-        height: 100vh;
-        flex-direction: column;
-        transition: transform 0.3s;
-        z-index: 10;
 
-        .superior-header {
-            margin-left: 30%;
-            display: flex;
-            align-items: start;
-            gap: 40px;
-        }
-
-        .logo {
-            display: none;
-            /* position: absolute;
-            top: 0;
-            left: 50px;
-            transform: translateY(-20%); */
-        }
-    }
-
-    nav:not(.mobile):not(.mobile2) {
-        transform: translateX(-100%);
-    }
-
-    nav:not(.mobile):not(.mobile2):has(#menu-toggle:checked) {
-        transform: translateX(0%);
-    }
-
-    .expansor {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 10px;
-        z-index: 10;
-    }
-
-    .close-expansor {
-        display: none;
-    }
-
-    nav:has(#menu-toggle:checked) {
-        transform: translateX(0%);
-    }
-
-    .nav-container {
-        flex-direction: column;
-        line-height: normal;
-        width: 100%;
-        margin-left: 10px;
-        top: 35%;
-
-        .nav {
-            width: 100%;
-            margin: 0 0;
-            color: #EEE6D3;
-        }
-    }
-
-    /*========================================
-                  MOBILE JANELA
-    ==========================================*/
-
+    /* Container Header */
     nav.mobile {
         position: fixed;
         width: calc(100% - 24px);
@@ -147,13 +93,13 @@ nav .nav:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #C2BC9E;
+        background-color: #280201;
         z-index: 10;
         transition: transform 0.3s ease;
     }
 
-    /* Logo */
-
+    
+    /* Container logo */
     nav.mobile .superior-header {
         width: 100%;
         display: flex;
@@ -162,21 +108,21 @@ nav .nav:hover {
         margin: 15px 0 0 0;
     }
 
+    /* Logo */
     nav.mobile .logo {
-        width: auto;
-        height: auto;
-        background-image: none;
+        width: 220px;
+        height: 60px;
     }
 
-    nav.mobile .logo::before {
+    /* Texto ao invés da logo */
+    /* nav.mobile .logo::before {
         content: "Ithá Arquitetura";
         font-size: 28px;
         font-family: Arial, Helvetica, sans-serif;
         color: white;
-    }
+    } */
 
-    /* Links */
-
+    /* Container dos opções */
     nav.mobile .nav-container {
         position: static;
         transform: none;
@@ -188,30 +134,34 @@ nav .nav:hover {
         margin-top: 35px;
     }
 
+    /* Opções */
     nav.mobile .nav {
         width: auto;
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
+        font-size: 22px;
         line-height: 29px;
         font-weight: 400;
-        color: white;
+        color: #EEE6D3;
     }
 
-    /* Botão X */
-
+    /* Botão de expandir Header mobile */
     nav.mobile+.expansor-menu {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s, visibility 0.2s;
     }
 
+    /* Se Header não expandido .expansor-menu é mostrado, senão fica escondido */
     nav.mobile:has(#menu-toggle:not(:checked))+.expansor-menu {
         display: block;
+        position: relative;
+        left: 90%;
         opacity: 1;
         visibility: visible;
     }
 
+    /* Botão de fechar o Header mobile */
     nav.mobile~.close-expansor {
         display: block;
         opacity: 1;
@@ -229,62 +179,25 @@ nav .nav:hover {
         cursor: pointer;
     }
 
+    /* Se Header expandido .close-expansor é mostrado, senão é escondido */
     nav.mobile:has(#menu-toggle:not(:checked))~.close-expansor {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s, visibility 0.2s;
     }
 
-    /* Mostra o menu quando o checkbox estiver marcado */
-
+    /* Animação para mostrar o Header mobile */
     nav.mobile:has(#menu-toggle:checked) {
         transform: translateY(0);
     }
 
+    /* Animação para esconder o Header mobile */
     nav.mobile:has(#menu-toggle:not(:checked)) {
         transform: translateY(calc(100% + 10px));
     }
-
-    /*========================================
-                    MOBILE HEADER
-    ==========================================*/
-    nav.mobile2 {
-        position: relative;
-        width: 100%;
-        height: 60px;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: start;
-        background-color: #C2BC9E;
-
-        .nav-container {
-            position: static;
-            transform: none;
-            flex-direction: row;
-            font-size: 0.8em;
-            margin-left: 0;
-            width: auto;
-        }
-
-        .superior-header {
-            margin-left: 0;
-            margin-right: 20px;
-
-            .logo {
-                height: 55px;
-                width: 55px;
-            }
-        }
-    }
-
-    nav.mobile2~.expansor {
-        display: none;
-    }
 }
 
+/* Muda a fonte dos opções em até esse width */
 @media (max-width: 1024) {
     .nav {
         font-size: clamp(13.5px, 2.4vw, 22px);
