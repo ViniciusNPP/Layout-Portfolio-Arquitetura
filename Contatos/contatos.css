@@ -261,3 +261,9 @@ div.contato-icone {
     }
 
 }
+
+@media (max-width: 768px) {
+    .header:not(.aberto) {
+        clip-path: inset(0 0 calc(100% - 48px) calc(100% - 48px));
+    }
+}

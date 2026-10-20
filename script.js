@@ -152,7 +152,7 @@ botoes.forEach(botao => {
 
     botao.addEventListener('click', (e) => {
         if (botao.className.includes('botao-projeto')) {
-            window.location.href = "./Menu_projeto/menu_projeto.html";
+            window.location.href = "Menu_projeto/Projetos/projetos_tipo.html";
         } else if (botao.className.includes('botao-sobre')) {
             window.location.href = "./Sobre/sobre.html";
         } else {

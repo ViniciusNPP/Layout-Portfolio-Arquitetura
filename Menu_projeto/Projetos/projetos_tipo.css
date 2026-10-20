@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis */
+:root {
+    --headerHeight: 80px
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    position: relative;
+    width: 100%;
+    height: var(--headerHeight);
+    z-index: 10;
+}
+
+/*===================================
+              COMPUTADOR
+====================================*/
+@media (orientation: landscape) and (min-width: 1024px) {
+
+    /* Container Categorias 
+(container pai das categorias)*/
+    .categorias {
+        display: flex;
+        width: 100dvw;
+        height: calc(100dvh - var(--headerHeight));
+    }
+
+    /* Categoria 
+(categorias a ser selecionadas)*/
+    .categoria {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        cursor: pointer;
+        transition: width 0.3s ease;
+
+        /* Texto das categorias */
+        p {
+            padding: 10px;
+            width: 400px;
+            text-align: center;
+            font-family: "Cormorant Garamond", serif;
+            color: #EEE6D3;
+            background: radial-gradient(circle, #00000070, #00000010);
+            z-index: 2;
+            transition: font-size 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .titulo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.9em;
+        }
+
+        .sub-texto {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+    }
+
+    /* Efeito de blur */
+    .categoria::before {
+        content: '';
+        inset: 0;
+        position: absolute;
+        background: #00000060;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 1;
+        transition: 0.3s ease;
+    }
+
+    /* Categoria específica */
+    .categoria-residencial {
+        background-image: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    }
+
+    .categoria-comercial {
+        background-image: url("https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D");
+    }
+
+    /* Efeito de hover nas categorias */
+    /* Residencial */
+    .categoria-residencial:hover {
+        width: 140%;
+
+        p {
+            background: radial-gradient(circle, #00000090, #00000010);
+        }
+
+        .titulo {
+            font-size: 3.2em;
+        }
+
+        .sub-texto {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .categoria-residencial:hover::before {
+        background: transparent;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+
+    /* Comercial */
+    .categoria-comercial:hover {
+        width: 140%;
+
+        p {
+            background: radial-gradient(circle, #00000090, #00000010);
+        }
+
+        .titulo {
+            font-size: 3.2em;
+        }
+
+        .sub-texto {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .categoria-comercial:hover::before {
+        background: transparent;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (orientation: portrait),
+(max-width: 1023px) {
+
+    /* Header */
+    .header {
+        position: absolute;
+        height: 80px;
+    }
+
+    .header.aberto {
+        height: 100vh;
+    }
+
+    /* Container das categorias */
+    .categorias {
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh;
+        flex: 1;
+    }
+
+    /* Categorias */
+    .categoria {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 250px;
+        flex: 1;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        cursor: pointer;
+        overflow: hidden;
+
+        /* Texto das categorias */
+        p {
+            width: 90%;
+            padding: 10px;
+
+            text-align: center;
+            font-family: "Cormorant Garamond", serif;
+            color: #EEE6D3;
+
+            background: radial-gradient(circle,
+                    #00000070,
+                    #00000010);
+
+            z-index: 2;
+        }
+
+        .titulo {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 2em;
+        }
+
+        .sub-texto {
+            opacity: 1;
+            visibility: visible;
+
+            font-size: 1em;
+        }
+    }
+
+    /* Escurecimento e desfoque das imagens */
+    .categoria::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: #00000050;
+
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+
+        z-index: 1;
+    }
+
+    /* Imagens */
+    .categoria-residencial {
+        background-image: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop");
+    }
+
+    .categoria-comercial {
+        background-image: url("https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1173&auto=format&fit=crop");
+    }
+}
+
+@media (max-width: 768px) {
+    .header:not(.aberto) {
+        clip-path: inset(0 0 calc(100% - 48px) calc(100% - 48px));
+    }
+}

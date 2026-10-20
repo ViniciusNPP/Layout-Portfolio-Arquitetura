@@ -5,7 +5,7 @@ opcoes.forEach(opcao => {
     opcao.addEventListener('click', (e) => {
         // Editar os ifs e hrefs conforme necessário
         if (opcao.classList.contains('nav-1')) {
-            window.top.location.href = '../Menu_projeto/menu_projeto.html';
+            window.top.location.href = '../Menu_projeto/Projetos/projetos_tipo.html';
         }
         if (opcao.classList.contains('nav-2')) {
             window.top.location.href = '../Sobre/sobre.html';
@@ -25,7 +25,13 @@ const checkbox = document.querySelector('#menu-toggle');
 const nav = document.querySelector('nav');
 
 document.body.addEventListener('click', (e) => {
-    if (!checkbox.checked || !(e.target instanceof Element)) return;
+    if (!checkbox.checked || !(e.target instanceof Element)) {
+        if (e.target.closest('.expansor')) return;
+
+        //#region HEADER FECHADO
+        
+        //#endregion
+    }
     if (nav.contains(e.target) || e.target.closest('.expansor')) return;
 
     checkbox.checked = false;
