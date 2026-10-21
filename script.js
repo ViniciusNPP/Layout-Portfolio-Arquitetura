@@ -152,7 +152,7 @@ botoes.forEach(botao => {
 
     botao.addEventListener('click', (e) => {
         if (botao.className.includes('botao-projeto')) {
-            window.location.href = "Menu_projeto/Projetos/projetos_tipo.html";
+            window.location.href = "Menu_projeto/projetos_tipo.html";
         } else if (botao.className.includes('botao-sobre')) {
             window.location.href = "./Sobre/sobre.html";
         } else {
@@ -175,7 +175,7 @@ document.addEventListener('click', (e) => {
 
 todosSlides.forEach(slide => {
     slide.addEventListener('click', (e) => {
-        window.location.href = "./Menu_projeto/Projetos/projeto.html";
+        window.location.href = "./Menu_projeto/projeto.html";
     });
 })
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa - Projetos</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="card_projetos.css">
+</head>
+<body>
+    <iframe src="\header\header.html" frameborder="0" class="header"></iframe>
+    <!-- Cards de linha com 3 projetos
+        MOLDE
+        
+                IMAGEM
+        NOME              ANO
+    -->
+    <main>
+        <section class="cards">
+            <!-- Cada card tem: 2ª classe = categoria (residencial/comercial) e data-id = id enviado na URL.
+                 O JS esconde os cards que não pertencem à categoria da URL. -->
+            <div class="card residencial projeto-1" data-id="1" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-1"></div>
+                <p class="nome-projeto">Residência 1</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card residencial projeto-2" data-id="2" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-2"></div>
+                <p class="nome-projeto">Residência 2</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card residencial projeto-3" data-id="3" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-3"></div>
+                <p class="nome-projeto">Residência 3</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card residencial projeto-4" data-id="4" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-4"></div>
+                <p class="nome-projeto">Residência 4</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card residencial projeto-5" data-id="5" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-5"></div>
+                <p class="nome-projeto">Residência 5</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card comercial projeto-6" data-id="6" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-6"></div>
+                <p class="nome-projeto">Comercial 1</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card comercial projeto-7" data-id="7" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-7"></div>
+                <p class="nome-projeto">Comercial 2</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card comercial projeto-8" data-id="8" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-8"></div>
+                <p class="nome-projeto">Comercial 3</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card comercial projeto-9" data-id="9" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-9"></div>
+                <p class="nome-projeto">Comercial 4</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+            <div class="card comercial projeto-10" data-id="10" tabindex="0" role="link">
+                <div class="imagem-projeto imagem-projeto-10"></div>
+                <p class="nome-projeto">Comercial 5</p>
+                <p class="ano-projeto">2026</p>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="card_projetos.js"></script>
+</body>
+</html>

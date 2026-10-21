@@ -5,7 +5,7 @@ opcoes.forEach(opcao => {
     opcao.addEventListener('click', (e) => {
         // Editar os ifs e hrefs conforme necessário
         if (opcao.classList.contains('nav-1')) {
-            window.top.location.href = '../Menu_projeto/Projetos/projetos_tipo.html';
+            window.top.location.href = '../Menu_projeto/projetos_tipo.html';
         }
         if (opcao.classList.contains('nav-2')) {
             window.top.location.href = '../Sobre/sobre.html';

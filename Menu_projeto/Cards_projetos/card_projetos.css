@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis */
+:root {
+    --headerHeight: 80px;
+    --fonte-titulo: 'Plus Jakarta Sans', sans-serif;
+    --fonte-texto: 'Jost', Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    position: relative;
+    width: 100%;
+    height: var(--headerHeight);
+    z-index: 10;
+}
+
+/* Main */
+main {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 40px 32px;
+    background-color: #EEE6D3;
+    scrollbar-color: #8a7f68 #EEE6D3;
+    font-family: var(--fonte-texto);
+}
+
+/* Grid responsivo */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 430px), 1fr));
+    gap: 40px 32px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Card */
+.card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "imagem imagem"
+        "nome   ano";
+    gap: 12px 16px;
+    width: 100%;
+    max-width: 840px;
+    justify-self: center;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.25s ease;
+}
+
+.residencial .imagem-projeto {
+    background-image: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop");
+}
+
+.comercial .imagem-projeto {
+    background-image: url("https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1173&auto=format&fit=crop");
+}
+
+.card.oculto {
+    display: none;
+}
+
+/* Imagem 4:3 */
+.imagem-projeto {
+    grid-area: imagem;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 180px;
+    max-height: 680px;
+    background-color: #d9d9d9;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Imagens de cada projeto */
+.imagem-projeto-1 {  }
+.imagem-projeto-2 {  }
+.imagem-projeto-3 {  }
+
+/* Nome */
+.nome-projeto {
+    grid-area: nome;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Ano */
+.ano-projeto {
+    grid-area: ano;
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* Foco no card (mouse e teclado) */
+@media (hover: hover) {
+    .card:hover {
+        transform: scale(1.04);
+        z-index: 1;
+    }
+
+    .card:hover .imagem-projeto {
+        filter: brightness(1.1);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.card:focus-visible {
+    transform: scale(1.04);
+    z-index: 1;
+}
+
+.card:focus-visible .imagem-projeto {
+    filter: brightness(1.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+    /* Header */
+    .header {
+        position: absolute;
+        height: 80px;
+    }
+
+    .header.aberto {
+        height: 100vh;
+    }
+    
+    /* Clique atráves do header no modo mobile menos no botão de expandir */
+    .header:not(.aberto) {
+        clip-path: inset(0 0 calc(100% - 48px) calc(100% - 48px));
+    }
+
+    .cards {
+        gap: 32px 16px;
+    }
+}
