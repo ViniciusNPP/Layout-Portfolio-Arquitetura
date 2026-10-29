@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #280201;
 }
 
 main {
@@ -40,7 +41,7 @@ main {
 }
 
 .botao-navegador {
-    background-color: white;
+    background-color: #280201;
     color: #C2BC9E;
     border: none;
     cursor: pointer;

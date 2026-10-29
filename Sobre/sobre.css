@@ -121,14 +121,14 @@ main {
     grid-area: 1 / 1;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(6px);
+    transform: translateX(6px);
     transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s;
 }
 
 .carrossel_slide.ativo {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .carrossel_slide p {

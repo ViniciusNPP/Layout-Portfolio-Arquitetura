@@ -32,7 +32,7 @@ if (CATEGORIAS.includes(categoriaAtual)) {
 // Clique (ou Enter/Espaço) abre projeto.html?id=ID, usando o data-id do card
 cards.forEach(card => {
     const abrirProjeto = () => {
-        window.location.href = `projeto.html?id=${encodeURIComponent(card.dataset.id)}`;
+        window.location.href = `../Projetos/projeto.html?id=${encodeURIComponent(card.dataset.id)}`;
     };
 
     card.addEventListener('click', abrirProjeto);
