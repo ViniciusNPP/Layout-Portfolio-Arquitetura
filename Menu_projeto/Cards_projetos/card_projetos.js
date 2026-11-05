@@ -29,10 +29,10 @@ if (CATEGORIAS.includes(categoriaAtual)) {
 //#endregion
 
 //#region REDIRECIONAMENTO
-// Clique (ou Enter/Espaço) abre projeto.html?id=ID, usando o data-id do card
+// Clique (ou Enter/Espaço) abre projeto.html?id=ID, usando o id do card
 cards.forEach(card => {
     const abrirProjeto = () => {
-        window.location.href = `../Projetos/projeto.html?id=${encodeURIComponent(card.dataset.id)}`;
+        window.location.href = `../Projetos/projeto.html?id=${encodeURIComponent(card.id)}`;
     };
 
     card.addEventListener('click', abrirProjeto);

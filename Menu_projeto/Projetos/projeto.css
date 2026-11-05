@@ -12,74 +12,89 @@
 }
 
 body {
-    width: 100dvw;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
     background-color: #EEE6D3;
 }
 
 /* Header */
-.header {
-    position: relative;
-    width: 100%;
+.header-slot {
+    position: sticky;
+    top: 0;
+    flex: 0 0 var(--headerHeight);
     height: var(--headerHeight);
     z-index: 10;
 }
 
-.container-imagens {
-    display: grid;
-    grid-template-areas: 
-    "img1 img1"
-    "img2 img4"
-    "img3 img4";
-    gap: 10px;
-
-    .img1 {
-        grid-area: img1;
-        width: 70%;
-    }
-    .img2 {
-        grid-area: img2;
-    }
-    .img3 {
-        grid-area: img3;
-    }
-    .img4 {
-        grid-area: img4;
-        height: 100%;
-        width: 100%;
-    }
-}
-
-/* .container-imagens {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    width: 100%;
-    min-width: 0;
-}
-
-.imagem {
+.header {
     display: block;
     width: 100%;
-    max-width: 100%;
-    height: auto;
-} */
+    height: 100%;
+    border: 0;
+}
 
-@media (max-width: 768px) {
-    /* Header */
-    .header {
-        position: absolute;
-        height: 80px;
+/* Textos */
+h3, p {
+    font-family: var(--fonte-texto);
+}
+
+h3 {
+    font-variant: small-caps;
+    font-weight: 300;
+}
+
+/* Configurações imagens */
+.container-imagens {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 90vh);
+    gap: 10px;
+    margin: 10px;
+
+    /* Imagens */
+    .imagem {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Informações do projeto */
+.container-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 0px 20px;
+
+    .titulo {
+        font-family: var(--fonte-titulo);
     }
 
-    .header.aberto {
-        height: 100vh;
+    .endereco-ano {
+        margin-bottom: 20px;
     }
-    
-    /* Clique atráves do header no modo mobile menos no botão de expandir */
-    .header:not(.aberto) {
-        clip-path: inset(0 0 calc(100% - 48px) calc(100% - 48px));
+}
+
+@media (max-width: 768px), (orientation: portrait) {
+    @media (max-width: 768px) {
+        /* Header */
+        .header.aberto {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+        }
+        
+        /* Clique atráves do header no modo mobile menos no botão de expandir */
+        .header:not(.aberto) {
+            clip-path: inset(0 0 calc(100% - 48px) calc(100% - 48px));
+        }
+    }
+
+    .container-imagens {
+        display: flex;
+        flex-direction: column;
     }
 }

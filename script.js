@@ -171,12 +171,12 @@ document.addEventListener('click', (e) => {
 })
 //#endregion
 
-//#region IMAGEM REDIREICIONA
+//#region REDIREICIONA
 
 todosSlides.forEach(slide => {
     slide.addEventListener('click', (e) => {
-        window.location.href = "./Menu_projeto/projeto.html";
+        window.location.href = `./Menu_projeto/Projetos/projeto.html?id=${slide.id}`;
     });
-})
+});
 
 //#endregion
