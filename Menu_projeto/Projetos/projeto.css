@@ -12,25 +12,29 @@
 }
 
 body {
-    min-height: 100dvh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     background-color: #EEE6D3;
 }
 
+main {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-color: #8a7f68 #EEE6D3;
+}
+
 /* Header */
-.header-slot {
+
+.header {
     position: sticky;
     top: 0;
     flex: 0 0 var(--headerHeight);
-    height: var(--headerHeight);
     z-index: 10;
-}
-
-.header {
     display: block;
     width: 100%;
-    height: 100%;
+    height: var(--headerHeight);
     border: 0;
 }
 
@@ -78,13 +82,13 @@ h3 {
 @media (max-width: 768px), (orientation: portrait) {
     @media (max-width: 768px) {
         /* Header */
-        .header.aberto {
+        .header {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            height: 80px;
+        }
+        
+        .header.aberto {
             height: 100vh;
-            height: 100dvh;
         }
         
         /* Clique atráves do header no modo mobile menos no botão de expandir */

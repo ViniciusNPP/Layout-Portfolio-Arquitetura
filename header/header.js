@@ -3,21 +3,46 @@ const opcoes = document.querySelectorAll('.nav');
 
 opcoes.forEach(opcao => {
     opcao.addEventListener('click', (e) => {
-        // Editar os ifs e hrefs conforme necessário
+        const endereco = window.top.location.href;
+
         if (opcao.classList.contains('nav-1')) {
+            if (endereco.includes("/Menu_projeto/projetos_tipo.html")) {
+                elasticAnimation(opcao)
+                return;
+            }
             window.top.location.href = '../Menu_projeto/projetos_tipo.html';
         }
         if (opcao.classList.contains('nav-2')) {
+            if (endereco.includes("/Sobre/sobre.html")) {
+                elasticAnimation(opcao)
+                return;
+            }
             window.top.location.href = '../Sobre/sobre.html';
         }
         if (opcao.classList.contains('nav-3')) {
+            if (endereco.includes("/Contatos/contatos.html")) {
+                elasticAnimation(opcao)
+                return;
+            }
             window.top.location.href = '../Contatos/contatos.html';
         }
         if (opcao.classList.contains('nav-4')) {
+            if (endereco.includes("/index.html")) {
+                elasticAnimation(opcao)
+                return;
+            }
             window.top.location.href = '../index.html'
         }
     })
 });
+
+//Adiciona animação de elástico
+function elasticAnimation(elemento) {
+    elemento.classList.remove("elastic");
+    void elemento.offsetWidth;
+    elemento.classList.add("elastic");
+}
+
 //#endregion
 
 //#region BODY

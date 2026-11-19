@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: opacity 0.3s linear, visibility 0.3s linear;
 }
 
 
@@ -175,6 +176,9 @@ main {
 
 #btn-anterior:hover { transform: translateX(-2px); }
 #btn-proximo:hover  { transform: translateX(2px); }
+
+#btn-anterior:active { transform: scale(0.9); }
+#btn-proximo:active { transform: scale(0.9); }
 
 .carrossel_seta:focus-visible,
 .carrossel_ponto:focus-visible {

@@ -16,6 +16,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    background-color: var(--fundo);
+    min-height: 100dvh;
 }
 
 
@@ -31,9 +33,9 @@ body {
 }
 
 .contato {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100dvh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: #f5f5f3;
@@ -181,6 +183,22 @@ div.contato-icone {
     color: var(--texto);
 }
 
+/* ================================ 
+   RODAPÉ 
+   ===================================*/
+
+.rodape {
+    margin-top: auto;
+}   
+
+.texto-rodape {
+    text-align: end;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-size: 0.875rem;
+    padding: 5px;
+}
+
 
 /* =========================
    TABLET
@@ -210,6 +228,10 @@ div.contato-icone {
 
     .contato-informacoes {
         padding: 60px 10%;
+    }
+
+    .texto-rodape {
+        font-size: 0.75rem;
     }
 
 }
@@ -258,6 +280,10 @@ div.contato-icone {
 
     .contato-detalhes strong {
         font-size: 14px;
+    }
+
+    .texto-rodape {
+        font-size: 0.5rem;
     }
 
 }

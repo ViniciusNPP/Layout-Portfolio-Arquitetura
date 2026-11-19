@@ -74,3 +74,16 @@ window.addEventListener('message', (e) => {
 })
 
 //#endregion
+
+//#region MUDANÇA DE ABA
+window.addEventListener("pagehide", (e) => {
+    document.body.style.opacity = 0
+    document.body.style.visibility = "hidden"
+});
+
+document.addEventListener("visibilitychange", (e) => {
+    document.body.style.opacity = 1
+    document.body.style.visibility = "visible"
+});
+
+//#endregion
